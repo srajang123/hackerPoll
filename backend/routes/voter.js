@@ -5,7 +5,7 @@ const isVote = require('../middleware/isVote');
 
 router = express.Router();
 
-router.get('/hackers/', isVote, (req, res, next) => {
+router.get('/hackers/', (req, res, next) => {
     db.execute('select * from hacker')
         .then(ret => {
             ret = ret[0];

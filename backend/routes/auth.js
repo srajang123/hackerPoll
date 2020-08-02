@@ -4,7 +4,8 @@ const db = require('../util/database');
 router = express.Router();
 
 router.post('/login', (req, res, next) => {
-    const { uname, pass } = req.body;
+    const { uname, pass } = req.body.data;
+    console.log(req.body);
     db.execute('select * from admin where uname=?', [uname])
         .then(ret => {
             ret = ret[0][0];
